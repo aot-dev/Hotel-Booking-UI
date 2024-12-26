@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api";
 
 interface BookingDetails {
-  numOfRooms: number;
+  numRooms: number;
   checkInDate: string;
   checkOutDate: string;
 }
@@ -30,7 +30,7 @@ const UpdateBookingPage: React.FC = () => {
     e.preventDefault();
 
     const updatedBooking: BookingDetails = {
-      numOfRooms: rooms,
+      numRooms: rooms,
       checkInDate: checkIn,
       checkOutDate: checkOut,
     };

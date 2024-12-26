@@ -34,16 +34,15 @@ const HotelListPage: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div>
       <input
         type="text"
         value={locationFilter}
         onChange={(e) => setLocationFilter(e.target.value)}
-        className="border p-2"
         placeholder="Filter by location"
       />
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+      <div>
         {filteredHotels.length === 0 ? (
           <p>No hotels available for the selected location.</p>
         ) : (

@@ -27,7 +27,7 @@ const BookingPage: React.FC = () => {
   // Validate dates and rooms before submitting
   const validateForm = () => {
     let valid = true;
-    const currentDate = new Date().toISOString().split('T')[0];  // Get today's date in YYYY-MM-DD format
+    const currentDate = new Date().toISOString().split('T')[0]; 
     const newErrors = {
       numRooms: '',
       checkInDate: '',
@@ -85,9 +85,9 @@ const BookingPage: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div>
       <h2>Booking Form for {name}</h2>
-      <form onSubmit={handleBookingSubmit} className="space-y-4">
+      <form onSubmit={handleBookingSubmit}>
         {/* Number of Rooms */}
         <div>
           <label htmlFor="numRooms" className="block">Number of Rooms</label>
@@ -98,39 +98,34 @@ const BookingPage: React.FC = () => {
             max={roomsAvailable}
             value={numRooms}
             onChange={(e) => setNumRooms(Number(e.target.value))}
-            className="border p-2"
           />
-          {errors.numRooms && <p className="text-red-500">{errors.numRooms}</p>}
+          {errors.numRooms && <p>{errors.numRooms}</p>}
         </div>
 
-        {/* Check-in Date */}
         <div>
-          <label htmlFor="checkInDate" className="block">Check-in Date</label>
+          <label htmlFor="checkInDate">Check-in Date</label>
           <input
             type="date"
             id="checkInDate"
             value={checkInDate}
             onChange={(e) => setCheckInDate(e.target.value)}
-            className="border p-2"
           />
-          {errors.checkInDate && <p className="text-red-500">{errors.checkInDate}</p>}
+          {errors.checkInDate && <p>{errors.checkInDate}</p>}
         </div>
 
-        {/* Check-out Date */}
         <div>
-          <label htmlFor="checkOutDate" className="block">Check-out Date</label>
+          <label htmlFor="checkOutDate">Check-out Date</label>
           <input
             type="date"
             id="checkOutDate"
             value={checkOutDate}
             onChange={(e) => setCheckOutDate(e.target.value)}
-            min={checkInDate}  // Prevent selecting past dates and ensure it's after check-in date
-            className="border p-2"
+            min={checkInDate}
           />
-          {errors.checkOutDate && <p className="text-red-500">{errors.checkOutDate}</p>}
+          {errors.checkOutDate && <p>{errors.checkOutDate}</p>}
         </div>
 
-        <button type="submit" className="bg-blue-500 text-white p-2">
+        <button type="submit">
           Confirm Booking
         </button>
       </form>
